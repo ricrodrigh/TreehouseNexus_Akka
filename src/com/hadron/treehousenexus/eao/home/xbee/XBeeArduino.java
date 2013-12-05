@@ -12,7 +12,7 @@ public class XBeeArduino {
 	public static XBee getXBeeInstance() throws XBeeException {
 		if (xbee == null) {
 			xbee = new XBee();
-			xbee.open("/dev/ttyUSB0", 9600);
+			xbee.open("/dev/ttyUSB1", 9600);
 		}
 		return xbee;
 	}
