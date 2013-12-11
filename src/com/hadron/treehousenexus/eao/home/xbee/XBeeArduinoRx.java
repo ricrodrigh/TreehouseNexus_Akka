@@ -26,7 +26,7 @@ public class XBeeArduinoRx extends ArduinoRx implements PacketListener {
 	private static Set<ActorRef> suscribedCallbackActors;
 	private static LoggingAdapter log;
 
-	public static void startListener(ActorSystem system) {
+	public static ArduinoRx startListener(ActorSystem system) {
 		log = Logging.getLogger(system, XBeeArduinoRx.class);
 		if (instance == null) {
 			try {
@@ -36,6 +36,7 @@ public class XBeeArduinoRx extends ArduinoRx implements PacketListener {
 				instance = null;
 			}
 		}
+		return instance;
 	}
 
 	public void closeListener() {
@@ -44,7 +45,7 @@ public class XBeeArduinoRx extends ArduinoRx implements PacketListener {
 		xbee.close();
 	}
 
-	public static boolean suscribeCallback(ActorRef callbackActor) {
+	public boolean suscribeCallback(ActorRef callbackActor) {
 		if (instance == null) {
 			return false;
 		}

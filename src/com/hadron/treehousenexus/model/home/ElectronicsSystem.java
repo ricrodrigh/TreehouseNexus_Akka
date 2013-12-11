@@ -1,17 +1,55 @@
 package com.hadron.treehousenexus.model.home;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 
 import com.hadron.treehousenexus.model.home.sensors.Sensor;
 
-public abstract class ElectronicsSystem implements HealthCheckable{
+/**
+ * Represents an elecronic's system
+ * Its composed of sensors
+ * 
+ * @author ricardo
+ *
+ */
+public abstract class ElectronicsSystem<Reading> implements HealthCheckable{
 	
-	List<Sensor> sensors;
+	/*
+	 * The sensor map must remain private and its elements available only 
+	 * through access modifiers.
+	 * Operations like put, remove and get must be encapsulated
+	 */
+	private Map<String, Sensor<Reading>> sensors;
 	
-	public ElectronicsSystem(List<Sensor> sensors){
+	public ElectronicsSystem(Map<String, Sensor<Reading>> sensors){
 		this.sensors = sensors;
 		doHealthCheck();
 	}
 	
+	public Sensor<Reading> getSensor(String key) {
+		return sensors.get(key);
+	}
+	
+	public Set<String> getSensorIds() {
+		return sensors.keySet();
+	}
+	
+	public Collection<Sensor<Reading>> getSensors() {
+		return sensors.values();
+	}
+	
 	public abstract void activate();
+
+	@Override
+	public boolean doHealthCheck() {		
+		return true;
+	}
+	
+	public void addSensor(Sensor<Reading> sensor) {
+		String key = sensor.getSensorId();
+		sensors.put(key, sensor);
+	}
+	
+	
 }

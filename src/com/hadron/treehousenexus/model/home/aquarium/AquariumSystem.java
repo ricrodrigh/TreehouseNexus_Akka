@@ -1,19 +1,28 @@
 package com.hadron.treehousenexus.model.home.aquarium;
 
-import java.util.List;
+import java.util.HashMap;
 
 import com.hadron.treehousenexus.model.home.ElectronicsSystem;
 import com.hadron.treehousenexus.model.home.sensors.LiquidLevelStrip;
 import com.hadron.treehousenexus.model.home.sensors.Sensor;
-import com.hadron.treehousenexus.model.home.sensors.Termometer;
+import com.hadron.treehousenexus.model.home.sensors.TemperatureProbe;
 
-public class AquariumSystem extends ElectronicsSystem {
+/**
+ * 
+ * @author ricardo
+ *
+ */
+public class AquariumSystem extends ElectronicsSystem<String> {
 	
-	Termometer termometer;
+	TemperatureProbe termometer;
 	LiquidLevelStrip liquidLevelStrip;
 	
-	public AquariumSystem(List<Sensor> sensors) {
-		super(sensors);
+	public AquariumSystem() {
+		super(new HashMap<String, Sensor<String>>());
+		termometer = new TemperatureProbe("T");
+		addSensor(termometer);
+		liquidLevelStrip = new LiquidLevelStrip("D");
+		addSensor(liquidLevelStrip);
 	}
 
 	@Override
@@ -24,8 +33,7 @@ public class AquariumSystem extends ElectronicsSystem {
 
 	@Override
 	public boolean doHealthCheck() {
-		return termometer.doHealthCheck() 
-				&& liquidLevelStrip.doHealthCheck();
+		return true;
 	}
 	
 	public void doPartialWaterChange(){

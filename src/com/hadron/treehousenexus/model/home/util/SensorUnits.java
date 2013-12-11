@@ -3,7 +3,10 @@ package com.hadron.treehousenexus.model.home.util;
 public enum SensorUnits {
 	
 	NONE("none"),
-	FARENHEITH("F");
+	FARENHEITH("F"),
+	CELSIUS("C"),
+	OHM("OHM"),
+	INCH("IN");
 	
 	private String unitName;
 	
@@ -11,4 +14,7 @@ public enum SensorUnits {
 		this.unitName = unitName;
 	}
 
+	public String getUnitName() {
+		return unitName;
+	}
 }
