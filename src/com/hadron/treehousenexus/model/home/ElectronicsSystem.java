@@ -21,8 +21,10 @@ public abstract class ElectronicsSystem<Reading> implements HealthCheckable{
 	 * Operations like put, remove and get must be encapsulated
 	 */
 	private Map<String, Sensor<Reading>> sensors;
+	private final String systemId;
 	
-	public ElectronicsSystem(Map<String, Sensor<Reading>> sensors){
+	public ElectronicsSystem(String systemId, Map<String, Sensor<Reading>> sensors){
+		this.systemId = systemId;
 		this.sensors = sensors;
 		doHealthCheck();
 	}
@@ -47,7 +49,8 @@ public abstract class ElectronicsSystem<Reading> implements HealthCheckable{
 	}
 	
 	public void addSensor(Sensor<Reading> sensor) {
-		String key = sensor.getSensorId();
+		String key = systemId + sensor.getSensorId();
+		sensor.setSensorId(key);
 		sensors.put(key, sensor);
 	}
 	

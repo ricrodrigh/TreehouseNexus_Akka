@@ -1,5 +1,10 @@
 package com.hadron.treehousenexus.model.home.util;
 
+/**
+ * 
+ * @author ricardo
+ *
+ */
 public enum SensorUnits {
 	
 	NONE("none"),

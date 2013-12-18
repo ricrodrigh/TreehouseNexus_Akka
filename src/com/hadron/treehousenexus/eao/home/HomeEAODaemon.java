@@ -23,7 +23,7 @@ public class HomeEAODaemon {
 		//final ActorRef master = system.actorOf(new Props(Master.class), "master");
 		final ActorRef master = system.actorOf(new Props(new UntypedActorFactory() {
 			private static final long serialVersionUID = 8448860786305435112L;
-			private final AquariumSystem aquariumSystem = new AquariumSystem();
+			private final AquariumSystem aquariumSystem = new AquariumSystem("001");
 			
 			@Override
 			public Actor create() throws Exception {

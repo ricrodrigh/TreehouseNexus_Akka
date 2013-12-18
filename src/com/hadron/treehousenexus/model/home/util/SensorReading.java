@@ -1,5 +1,12 @@
 package com.hadron.treehousenexus.model.home.util;
 
+/**
+ * 
+ * @author ricardo
+ *
+ * @param <Magnitude>
+ * @param <Unit>
+ */
 public class SensorReading <Magnitude, Unit>{
 	
 	private Magnitude magnitude;

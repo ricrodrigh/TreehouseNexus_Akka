@@ -17,11 +17,11 @@ public class AquariumSystem extends ElectronicsSystem<String> {
 	TemperatureProbe termometer;
 	LiquidLevelStrip liquidLevelStrip;
 	
-	public AquariumSystem() {
-		super(new HashMap<String, Sensor<String>>());
-		termometer = new TemperatureProbe("T");
+	public AquariumSystem(String systemId) {
+		super(systemId, new HashMap<String, Sensor<String>>());
+		termometer = new TemperatureProbe("TP001");
 		addSensor(termometer);
-		liquidLevelStrip = new LiquidLevelStrip("D");
+		liquidLevelStrip = new LiquidLevelStrip("DS002");
 		addSensor(liquidLevelStrip);
 	}
 
