@@ -10,7 +10,6 @@ import akka.event.LoggingAdapter;
 
 import com.hadron.treehousenexus.eao.home.envelopes.Init;
 import com.hadron.treehousenexus.model.home.ElectronicsSystem;
-import com.hadron.treehousenexus.model.home.aquarium.AquariumSystem;
 
 /**
  * 
@@ -21,7 +20,7 @@ public class Master extends UntypedActor {
 
 	private LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
-	public Master(AquariumSystem system) {
+	public Master(ElectronicsSystem<String> system) {
 		log.debug("Master initialized, dispatching children");
 		log.info("Creating AquariumListener");
 		final ActorRef aquariumRx = getContext().actorOf(new Props(new SystemUntypedActorFactory(system)), "aquariumRx");

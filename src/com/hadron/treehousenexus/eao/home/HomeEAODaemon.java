@@ -1,14 +1,14 @@
 package com.hadron.treehousenexus.eao.home;
 
-import com.hadron.treehousenexus.eao.home.actors.Master;
-import com.hadron.treehousenexus.eao.home.envelopes.Init;
-import com.hadron.treehousenexus.model.home.aquarium.AquariumSystem;
-
 import akka.actor.Actor;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.actor.UntypedActorFactory;
+
+import com.hadron.treehousenexus.eao.home.actors.Master;
+import com.hadron.treehousenexus.eao.home.envelopes.Init;
+import com.hadron.treehousenexus.eao.home.systems.AquariumSystem;
 
 public class HomeEAODaemon {
 

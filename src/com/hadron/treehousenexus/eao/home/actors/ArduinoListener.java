@@ -92,8 +92,10 @@ public class ArduinoListener extends UntypedActor {
 		String[] parts = messageString.split(",");
 
 		for (String part : parts) {
-			String key = part.substring(0, 1);
-			String reading = part.substring(1, part.length());
+			String[] readingParts = part.split(":");
+			String key = readingParts[0];
+			String reading = readingParts[1];
+			log.debug("SensorId: " + key);
 			Sensor<String> sensor = relatedSystem.getSensor(key);
 			if (sensor != null) {
 				log.debug("Setting value to sensorId: " + key);

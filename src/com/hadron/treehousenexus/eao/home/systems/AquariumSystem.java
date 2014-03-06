@@ -1,4 +1,4 @@
-package com.hadron.treehousenexus.model.home.aquarium;
+package com.hadron.treehousenexus.eao.home.systems;
 
 import java.util.HashMap;
 
@@ -21,7 +21,7 @@ public class AquariumSystem extends ElectronicsSystem<String> {
 		super(systemId, new HashMap<String, Sensor<String>>());
 		termometer = new TemperatureProbe("TP001");
 		addSensor(termometer);
-		liquidLevelStrip = new LiquidLevelStrip("DS002");
+		liquidLevelStrip = new LiquidLevelStrip("DPS002"); //TODO: 
 		addSensor(liquidLevelStrip);
 	}
 
