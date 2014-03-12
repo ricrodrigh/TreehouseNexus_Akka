@@ -65,7 +65,6 @@ public class XBeeArduinoRx extends ArduinoRx implements PacketListener {
 		xbee.addPacketListener(this);
 	}
 
-	@Override
 	public void processResponse(XBeeResponse arg0) {
 		log.debug("Got XBee Message");
 		if (arg0.getApiId() == ApiId.RX_16_RESPONSE) {

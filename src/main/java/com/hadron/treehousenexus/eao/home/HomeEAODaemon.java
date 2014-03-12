@@ -25,7 +25,6 @@ public class HomeEAODaemon {
 			private static final long serialVersionUID = 8448860786305435112L;
 			private final AquariumSystem aquariumSystem = new AquariumSystem("001");
 			
-			@Override
 			public Actor create() throws Exception {
 				return new Master(aquariumSystem);
 			}

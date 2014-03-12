@@ -43,7 +43,6 @@ class SystemUntypedActorFactory implements UntypedActorFactory{
 		this.system = system;
 	}
 	
-	@Override
 	public Actor create() throws Exception {
 		return new ArduinoListener(system);
 	}
